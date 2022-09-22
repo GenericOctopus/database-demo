@@ -18,4 +18,12 @@ export class TodoService {
     this.messageService.add('TodoService: fetched list');
     return todos;
   }
+
+  getTodo(id: number): Observable<Todo> {
+    const todo = TODOLIST.find(t => t.id === id)!;
+    this.messageService.add(`TodoService: fetched todo id=${id}`);
+
+    return of(todo);
+  }
+
 }

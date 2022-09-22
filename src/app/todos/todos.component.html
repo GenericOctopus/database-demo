@@ -1,14 +1,12 @@
 <h2>Todo List</h2>
 <ul class="todos">
     <li *ngFor="let todo of todos">
-        <button [class.selected]="todo === selectedTodo" type="button" (click)="onSelect(todo)">
-            <span class="badge">{{todo.id}}</span>
-            <span class="name">{{todo.name}}</span>
-        </button>
+        
+        <a routerLink="/detail/{{todo.id}}">
+            <span class="badge">{{todo.id}}</span> {{todo.name}}
+        </a>
     </li>
 </ul>
-
-<app-todo-detail [todo]="selectedTodo"></app-todo-detail>
 
 
 
