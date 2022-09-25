@@ -37,4 +37,18 @@ export class TodosComponent implements OnInit {
       .subscribe(todos => this.todos = todos);
   }
 
+  add(name: string): void {
+    name = name.trim();
+    if (!name) {return;}
+    this.todoService.addTodo({name} as Todo)
+      .subscribe(todo => {
+        this.todos.push(todo);
+      }); 
+  }
+
+  delete(todo: Todo): void {
+    this.todos = this.todos.filter(t => t !== todo);
+    this.todoService.deleteTodo(todo.id).subscribe();
+  }
+
 }

@@ -5,8 +5,16 @@
         <a routerLink="/detail/{{todo.id}}">
             <span class="badge">{{todo.id}}</span> {{todo.name}}
         </a>
+        <button type="button" class="delete" title="delete todo" (click)="delete(todo)">X</button>
     </li>
 </ul>
+
+<div>
+    <label for="new-todo">New Todo: </label>
+    <input id="new-todo" #todoName />
+
+    <button type="button" class="add-button" (click)="add(todoName.value); todoName.value=''">Add Todo</button>
+</div>
 
 
 
