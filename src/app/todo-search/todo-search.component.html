@@ -1,0 +1,15 @@
+<div id="search-component">
+    <label for="search-box">Search Todos</label>
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+    <ul class="search-result">
+        <li *ngFor="let todo of todos$ |async">
+
+            <a routerLink="/detail/{{todo.id}}">
+                {{todo.name}}
+            </a>
+
+        </li>
+    </ul>
+
+</div>

@@ -13,6 +13,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {HttpClientModule} from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './in-memory-data.service';
+import { TodoSearchComponent } from './todo-search/todo-search.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {InMemoryDataService} from './in-memory-data.service';
     TodosComponent,
     TodoDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    TodoSearchComponent
   ],
   imports: [
     BrowserModule,

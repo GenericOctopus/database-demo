@@ -62,6 +62,18 @@ export class TodoService {
     );
   }
 
+  searchTodos(term: string): Observable<Todo[]> {
+    if (!term.trim()) {
+      return of([]);
+    }
+    return this.http.get<Todo[]>(`${this.todosUrl}/?name=${term}`).pipe(
+      tap(x => x.length ?
+        this.log(`found todos matching "${term}"`) : 
+        this.log(`no todos found for "${term}"`)),
+      catchError(this.handleError<Todo[]>('serchTodos', []))
+    );
+  }
+
 
   private log(message: string){
     this.messageService.add(`TodoService: ${message}`);
